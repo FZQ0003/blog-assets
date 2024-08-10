@@ -1,0 +1,38 @@
+name: Minify Assets
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch: {}
+
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Utils
+        uses: actions/cache@v4
+        with:
+          path: utils
+          key: ${{ runner.os }}-utils
+
+      - name: Install & Update Utils
+        run: bash download_utils.sh
+
+      - name: Minify Assets
+        env:
+          APPIMAGE_EXTRACT_AND_RUN: 1
+        run: |
+          bash minify.sh image gallery
+          bash minify.sh html theme-material
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public

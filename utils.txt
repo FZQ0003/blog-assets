@@ -1,0 +1,2 @@
+magick https://github.com/ImageMagick/ImageMagick/releases/download/7.1.1-36/ImageMagick-852a4e9-gcc-x86_64.AppImage 3433d1f598653f1fcf9395d495b5257f978ea98618f613423b45f260602bb96d
+minhtml https://github.com/wilsonzlin/minify-html/releases/download/v0.15.0/minhtml-0.15.0-x86_64-unknown-linux-gnu e848a60abfd92441fd8eca99281074c166f6a7ce8e05eea3d8033c49ea66524d
