@@ -13,6 +13,7 @@ while read line; do
     if [ $? != 0 ]; then
         wget ${info[1]} -O ${info[0]}
     fi
+    chmod +x ${info[0]}
 done < "../utils.txt"
 
 cd ".."

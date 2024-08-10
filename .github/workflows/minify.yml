@@ -32,7 +32,9 @@ jobs:
           bash minify.sh image gallery
           bash minify.sh html theme-material
 
-      - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: blog-assets
           path: public
+          overwrite: true

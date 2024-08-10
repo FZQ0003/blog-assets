@@ -16,7 +16,7 @@ case $1 in
             mkdir -p "$PUBLIC_DIR/$dir"
             "./$UTILS_DIR/magick" "$dir/"*.png -format jpg -quality 98 \
                 -set filename:base %t -set filename:dir %d \
-                "$PUBLIC_DIR/%[filename:dir]/%[filename:base].jpg" 2> /dev/null
+                "$PUBLIC_DIR/%[filename:dir]/%[filename:base].jpg"
         done
         find "$@" -type f -name "*.jpg" | while read file; do
             echo "Copying JPEG file: $file..."
