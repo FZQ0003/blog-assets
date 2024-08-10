@@ -5,6 +5,7 @@ if [ -z "$UTILS_DIR" ]; then
 fi
 
 mkdir -p "$UTILS_DIR"
+_path="$(pwd)"
 cd "$UTILS_DIR"
 
 while read line; do
@@ -14,7 +15,7 @@ while read line; do
         wget ${info[1]} -O ${info[0]}
     fi
     chmod +x ${info[0]}
-done < "../utils.txt"
+done < "$_path/utils.txt"
 
-cd ".."
+cd "$_path"
 echo "Done!"

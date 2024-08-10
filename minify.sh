@@ -14,7 +14,7 @@ case $1 in
         find "$@" -type d | while read dir; do
             echo "Converting PNGs in $dir..."
             mkdir -p "$PUBLIC_DIR/$dir"
-            "./$UTILS_DIR/magick" "$dir/"*.png -format jpg -quality 98 \
+            "$UTILS_DIR/magick" "$dir/"*.png -format jpg -quality 98 \
                 -set filename:base %t -set filename:dir %d \
                 "$PUBLIC_DIR/%[filename:dir]/%[filename:base].jpg"
         done
@@ -31,7 +31,7 @@ case $1 in
         cp -r "$@" "$PUBLIC_DIR"
         find "$@" -type f -name "*.html" | while read file; do
             echo "Converting $file..."
-            "./$UTILS_DIR/minhtml" "$file" \
+            "$UTILS_DIR/minhtml" "$file" \
             --do-not-minify-doctype \
             --ensure-spec-compliant-unquoted-attribute-values \
             --keep-closing-tags --keep-spaces-between-attributes \
