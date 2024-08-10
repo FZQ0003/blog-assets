@@ -26,8 +26,6 @@ jobs:
         run: bash download_utils.sh
 
       - name: Minify Assets
-        env:
-          APPIMAGE_EXTRACT_AND_RUN: 1
         run: |
           bash minify.sh image gallery
           bash minify.sh html theme-material

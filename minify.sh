@@ -14,7 +14,8 @@ case $1 in
         find "$@" -type d | while read dir; do
             echo "Converting PNGs in $dir..."
             mkdir -p "$PUBLIC_DIR/$dir"
-            "$UTILS_DIR/magick" "$dir/"*.png -format jpg -quality 98 \
+            "$UTILS_DIR/magick" --appimage-extract-and-run \
+                "$dir/"*.png -format jpg -quality 98 \
                 -set filename:base %t -set filename:dir %d \
                 "$PUBLIC_DIR/%[filename:dir]/%[filename:base].jpg"
         done
