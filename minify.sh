@@ -33,7 +33,6 @@ case $1 in
         find "$@" -type f -name "*.html" | while read file; do
             echo "Converting $file..."
             "$UTILS_DIR/minhtml" "$file" \
-            --ensure-spec-compliant-unquoted-attribute-values \
             --keep-closing-tags \
             --minify-css --minify-js \
             -o "$PUBLIC_DIR/$file"
